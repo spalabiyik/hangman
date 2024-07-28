@@ -17,6 +17,17 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+def play(request):
+    """Renders the home page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/hangman/play.html',
+        {
+            'title':'play Page',
+            'year':datetime.now().year,
+        }
+    )
 
 def contact(request):
     """Renders the contact page."""
