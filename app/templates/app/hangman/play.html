@@ -3,14 +3,40 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1>Django</h1>
-    <p class="lead">Django is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://www.djangoproject.com/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <h1>Hangman</h1>
+    <p class="lead">Just a simple game, this shouldn't take me long'.</p>
+
+</div>
+
+<div calss="current_stage">You have already tried: {{GuessedAndWrong}}</div>
+
+<div class="Hangman_svg">
+    <svg width="100" height="100">
+        <rect width="100" height="100" x="0" y="0" fill="white" />
+        <text x="5" y="15" fill="red">   {{ HangmanStage }} </text>
+    </svg>
+</div>
+
+<div calss="current_stage">{{current}}</div>
+<div calss="current_stage">your last guess was {{correct}}</div>
+
+
+<div class="Game_logic_container">
+    <p>
+        <form action="/play/" method="post">
+            <label for="Guess">you are the current player; make a guess: </label>
+            <input type="text" id="Guess" name="Guess_txt"><br><br>
+            <input type="submit">
+
+            <button>plz dont click me</button>
+        </form>
+    </p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>LETS GO</h2>
+
         <p>
             Django gives you a powerful, patterns-based way to build dynamic websites that
             enables a clean separation of concerns and gives you full control over markup

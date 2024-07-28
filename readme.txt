@@ -5,6 +5,7 @@ MVP
 
 write basic todo document																[X]
 
+display already guessed letters															[X]
 Create using pure HTML a method to guess letters and check if you are right or wrong	[ ]
 using javascript sockets, add an async method to add letters							[ ]
 add an option to display letters in HTML												[ ]
@@ -14,6 +15,7 @@ display the word that is being guessed													[ ]
 using javascript sockets, add an async method to see the svg of the hangman				[ ]
 use javascript sockets to update the guessed letters									[ ]								
 Add win/loss Graphic																	[ ]
+
 last step - multiplayer																	[ ]
 
 =====================================================
@@ -31,7 +33,7 @@ add a move on section for the next hint													[ ]
 optional extras 
 ====================================================
 
-make it loot pretty																		[ ]
+make it look pretty																		[ ]
 add animations																			[ ]
 add option to take multiple suggestions before it starts								[ ]
 add an option to select difficulty														[ ]
@@ -39,3 +41,8 @@ add leaderboard																			[ ]
 add option for people to guess before it gets to them									[ ]
 
 
+======================================================
+styling notes for some point
+======================================================
+
+centre the hangman_svg class/image														[ ]										
