@@ -8,18 +8,45 @@
 
 </div>
 
-<div calss="current_stage">You have already tried: {{GuessedAndWrong}}</div>
+<div class="current_stage">You have already tried: {{GuessedAndWrong}}</div>
 
 <div class="Hangman_svg">
-    <svg width="100" height="100">
-        <rect width="900" height="1800" x="0" y="0" fill="white" />
-        <text x="5" y="15" fill="red">   a </text>
-    </svg>
-</div>
- alt="Alternate Text" />
+    <svg width="900" height="800">
+        <rect width="900" height="800" x="0" y="0" fill="white" />
+        <!-- start of gallows-->
 
-<div calss="current_stage">{{current}}</div>
-<div calss="current_stage">your last guess was {{correct}}</div>
+        <rect x="20" y="770" width="750" height="15" fill="Brown" />
+        <rect x="20" y="20" width="450" height="15" fill="Brown" />
+
+        <rect x="470" y="20" width="15" height="75" fill="Brown" />
+        <rect x="20" y="20" width="15" height="750" fill="Brown" />
+        <!-- end of gallows-->
+        <!-- start of Head-->
+        <circle cx="490" cy="145" r="85" fill="Black" />
+
+        <circle cx="490" cy="145" r="70" fill="White" />
+        <!-- end of Head-->
+        <!-- start of Body-->
+        <rect x="490" y="225" width="15" height="300" fill="Black" />
+        <!-- end of Body-->
+        <!-- start of LLEG-->
+        <rect x="330" y="525" width="160" height="15" fill="Black" />
+        <!-- end of LLEG-->
+        <!-- start of RLEG-->
+        <rect x="490" y="525" width="160" height="15" fill="Black" />
+        <!-- end of RLEG-->
+        <!-- start of LARM-->
+        <rect x="330" y="275" width="160" height="15" fill="Black" />
+        <!-- end of LARM-->
+        <!-- start of RARM-->
+        <rect x="490" y="275" width="160" height="15" fill="Black" />
+        <!-- end of RARM-->
+
+    </svg>
+
+</div>
+<div class="current_stage">{{current}}</div>
+<div class="current_stage">your last guess was {{correct}}</div>
 
 
 <div class="Game_logic_container">
@@ -29,11 +56,10 @@
             <input type="text" id="Guess" name="Guess_txt"><br><br>
             <input type="submit">
 
-            <button>plz dont click me</button>
         </form>
     </p>
 </div>
-
+<!--
 <div class="row">
     <div class="col-md-4">
         <h2>LETS GO</h2>
@@ -56,5 +82,5 @@
         <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
     </div>
 </div>
-
+    -->
 {% endblock %}

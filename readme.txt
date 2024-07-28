@@ -11,10 +11,10 @@ using javascript sockets, add an async method to add letters							[ ]
 add an option to display letters in HTML												[X]
 take current hint+clue from txt file													[ ]
 add the logic to check if a letter was in the word										[X]
-display the word that is being guessed													[ ]
+display the word that is being guessed													[X]
 using javascript sockets, add an async method to see the svg of the hangman				[ ]
 use javascript sockets to update the guessed letters									[ ]								
-Add win/loss Graphic																	[ ]
+Add win/loss Graphic																	[x]
 
 last step - multiplayer																	[ ]
 
@@ -45,4 +45,5 @@ add option for people to guess before it gets to them									[ ]
 styling notes for some point
 ======================================================
 
-centre the hangman_svg class/image														[ ]										
+centre the hangman_svg class/image														[ ]	
+rotate the limbs of the hang man svg													[ ]

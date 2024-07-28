@@ -39,7 +39,7 @@ def generateBoard(answer, request ,clue = "Something"):
         request,
         'app/hangman/play.html',
         {
-            'current': " ".join(CurrentBoard)+ "  " + str(randint(0,10)),
+            'current': " ".join(CurrentBoard)+ "  " ,
             "GuessedAndWrong": " ".join(GuessedAndWrong),
             "Hanged_man": hangman_svg,
             'title':'Play Page',
@@ -78,7 +78,7 @@ def hangmanRequest(request):
         request,
         'app/hangman/play.html',
         {
-            'current': " ".join(CurrentBoard)+ "  " + str(randint(0,10)),
+            'current': " ".join(CurrentBoard)+ "  " ,
             'correct': "already guessed",
             "GuessedAndWrong": " ".join(GuessedAndWrong),
             "Hanged_man": hangman_svg,
@@ -120,7 +120,7 @@ def hangmanRequest(request):
         request,
         'app/hangman/play.html',
         {
-            'current': " ".join(CurrentBoard)+ "  " + str(randint(0,10)),
+            'current': " ".join(CurrentBoard)+ "  " ,
             'correct': correct,
             "GuessedAndWrong": " ".join(GuessedAndWrong),
             "Hanged_man": hangman_svg,
@@ -146,7 +146,7 @@ def play(request):
             request,
             'app/hangman/play.html',
             {
-                'current': " ".join(CurrentBoard)+ "  " + str(randint(0,10)),
+                'current': " ".join(CurrentBoard)+ "  ",
                 "GuessedAndWrong": " ".join(GuessedAndWrong),
                 "Hanged_man": hangman_svg,
                 'year':datetime.now().year,
