@@ -1,17 +1,20 @@
 """
 Definition of views.
 """
+from ast import Global
 from random import randint
 from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpRequest
 # global values all to be used for the hangman game and its logic
+
+
 CurrentClue = "Something"
 CurrentGame = ["t","e","s","t","/","d","a","t","a"]
 CurrentBoard =  ["_","_","_","_","/","_","_","_","_"]
 GuessedAndWrong = []
-#Lives = 6 < currently broken
-
+Lives = 6 # < currently broken
+hangman_svg = "WIP.svg"
 
 def home(request):
     """Renders the home page."""
@@ -24,11 +27,25 @@ def home(request):
             'year':datetime.now().year,
         }
     )
-def generateBoard(answer, clue = "Something"):
+
+def generateBoard(answer, request ,clue = "Something"):
+    
+  
+    GuessedAndWrong = []
     CurrentClue = clue
     CurrentGame = [*answer.replace(" ", "/")]
     CurrentBoard =  ["_" if x != "/" else x for x in CurrentGame]
-    
+    return render(
+        request,
+        'app/hangman/play.html',
+        {
+            'current': " ".join(CurrentBoard)+ "  " + str(randint(0,10)),
+            "GuessedAndWrong": " ".join(GuessedAndWrong),
+            "Hanged_man": hangman_svg,
+            'title':'Play Page',
+            'year':datetime.now().year,
+        }
+    )        
         
         
 def hangmanRequestValidation(request):
@@ -46,7 +63,6 @@ def updateBoard(guessedLetter):
         print(CurrentBoard)
         numb -=1
         lastFound+=1
-    print("go")
   
     
     
@@ -55,11 +71,22 @@ def failedGuess(guessedLetter):
 
 
 def hangmanRequest(request):
-    correct = "untouched"
     guessedLetter = request.POST['Guess_txt'].lower()
-    # take the input. checks and sanatises it
-    if len(guessedLetter) == 0:
-        return
+    # take the input. checks and sanitise  it
+    if len(guessedLetter) == 0 or guessedLetter in GuessedAndWrong:
+        return render(
+        request,
+        'app/hangman/play.html',
+        {
+            'current': " ".join(CurrentBoard)+ "  " + str(randint(0,10)),
+            'correct': "already guessed",
+            "GuessedAndWrong": " ".join(GuessedAndWrong),
+            "Hanged_man": hangman_svg,
+
+            'title':'Play Page',
+            'year':datetime.now().year,
+        }
+    )
         
     elif len(guessedLetter) == 1:
         if guessedLetter in CurrentGame:
@@ -74,6 +101,11 @@ def hangmanRequest(request):
     else:
         if guessedLetter.replace(" ", "/") == "".join(CurrentGame):
             correct = "YOU FUCKING DID IT"
+            generateBoard("test data",request)
+            print (" ".join(GuessedAndWrong))
+            print(" ".join(CurrentBoard), flush=True)
+
+    
         else:
             failedGuess(guessedLetter)
             #Lives = Lives - 1
@@ -91,6 +123,8 @@ def hangmanRequest(request):
             'current': " ".join(CurrentBoard)+ "  " + str(randint(0,10)),
             'correct': correct,
             "GuessedAndWrong": " ".join(GuessedAndWrong),
+            "Hanged_man": hangman_svg,
+
             'title':'Play Page',
             'year':datetime.now().year,
         }
@@ -99,6 +133,7 @@ def hangmanRequest(request):
 
 
 def play(request):
+
     if request.method =='POST':
         return hangmanRequest(request)
         
@@ -111,10 +146,9 @@ def play(request):
             request,
             'app/hangman/play.html',
             {
-                'current':'____ / ____',
-                'correct': 'Wrong',
-                'title':'Play Page',
-
+                'current': " ".join(CurrentBoard)+ "  " + str(randint(0,10)),
+                "GuessedAndWrong": " ".join(GuessedAndWrong),
+                "Hanged_man": hangman_svg,
                 'year':datetime.now().year,
             }
         )

@@ -55,10 +55,13 @@
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="app\templates\app\hangman\" />
+    <Folder Include="app\templates\app\hangman\img\" />
     <Folder Include="hangman\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\templates\app\hangman\Hints.txt" />
+    <Content Include="app\templates\app\hangman\img\WIP.svg" />
+    <Content Include="app\templates\app\hangman\Mediamodifier-Design.svg" />
     <Content Include="app\templates\app\hangman\play.html" />
     <Content Include="requirements.txt" />
     <Content Include="app\static\app\content\bootstrap.css" />
