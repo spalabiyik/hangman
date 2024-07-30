@@ -9,6 +9,36 @@ from django.http import HttpRequest
 # global values all to be used for the hangman game and its logic
 
 
+#until we get things sorted 
+def index(request):
+    print("fuck")
+    return render(request, "app/hangman/play.html")
+
+
+def room(request, room_name):
+    print("off")
+
+    return render(request, "app/hangman/play.html", {"room_name": room_name})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 CurrentClue = "Something"
 CurrentGame = ["t","e","s","t","/","d","a","t","a"]
 CurrentBoard =  ["_","_","_","_","/","_","_","_","_"]
@@ -24,6 +54,21 @@ def home(request):
         'app/index.html',
         {
             'title':'Home Page',
+            'year':datetime.now().year,
+        }
+    )
+def guess(request):
+    """Renders the home page."""
+    assert isinstance(request, HttpRequest)
+    print ("guessssed")
+    return render(
+        request,
+        'app/hangman/play.html',
+        {
+            'current': " ".join(CurrentBoard)+ "  " ,
+            "GuessedAndWrong": " ".join(GuessedAndWrong),
+            "Hanged_man": hangman_svg,
+            'title':'Play Page',
             'year':datetime.now().year,
         }
     )

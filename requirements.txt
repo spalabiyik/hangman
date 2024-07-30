@@ -2,3 +2,4 @@ django>=3.2.14
 channels>=4.0.0 
 setuptools>=71.0.0
 daphne<=4.1.2
+twisted<=24.3.0

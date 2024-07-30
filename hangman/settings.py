@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import posixpath
+from channels.auth import AuthMiddlewareStack
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,11 +27,12 @@ SECRET_KEY = 'f16b447d-4be3-45ea-a516-54ccc61ac634'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ASGI_APPLICATION = 'hangman.asgi.application'
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
 INSTALLED_APPS = [
-    "daphne",
+    'daphne',
     'app',
     # Add your apps here to enable them
     'django.contrib.admin',
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+ASGI_APPLICATION = 'hangman.asgi.application'
 
 # Middleware framework
 # https://docs.djangoproject.com/en/2.1/topics/http/middleware/
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 #    'django.middleware.csrf.CsrfViewMiddleware',
+ASGI_APPLICATION = 'hangman.asgi.application'
 
 ROOT_URLCONF = 'hangman.urls'
 
@@ -73,7 +77,6 @@ TEMPLATES = [
     },
 ]
 
-ASGI_APPLICATION = 'hangman.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
@@ -99,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+ASGI_APPLICATION = 'hangman.asgi.application'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -112,3 +116,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATIC_URL = '/static/'
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+
+ASGI_APPLICATION = 'hangman.asgi.application'
